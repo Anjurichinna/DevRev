@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Flight Name</th>
+            <th>Flight Number</th>
+            <th>Time</th>
+            <th>Available Seats</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+    {% for i in li %}
+    <tr>
+        <td>{{i.name}}</td>
+    <td>{{i.number}}</td>
+    <td>{{i.time}}</td>
+    <td>{{i.available_seats}}</td>
+    <td>{{i.cost}}</td>
+        {% if i.dialy %}
+    <td>Runs daily</td>
+        {% else %}
+    <td>Runs only on i.Week_day</td>
+        {% endif %}
+        <br/>
+    </tr>
+    {% endfor %}
+    </table>
+<br><br>
+    <form action="timeSearch" method="POST">
+        {% csrf_token %}
+        
+        <input type="time" name="start_time" >
+        <input type="time" name="end_time" >
+        <button type="submit">Search</button>
+    </form>
+
+    <form action="dateSearch" method="POST">
+        {% csrf_token %}
+        <input type="date" name="date22">
+        <button type="submit">enter</button>
+    </form>
+</body>
+</html>

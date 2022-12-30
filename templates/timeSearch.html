@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% for i in lii %}
+    <div id={{i.id}}>
+        <li>{{i.number}}</li>
+        <li>{{i.name}}</li>
+        <a href="/home?id={{i.id}}"> enter </a>
+        <button id={{i.id}} onclick="fun3(this)">enter</button>
+    </div>
+    {% endfor %}
+    
+    
+</body>
+<script>
+    var matches = [];
+    // var searchEles = document.getElementById("mydiv").children;
+    // console.log(searchEles);
+    function fun(element)
+    {
+        $.ajax({
+            url:"home",
+            context:"hello"
+        })
+    }
+    function fun2(){
+        const request = new XMLHttpRequest()
+        
+    }
+
+    async function fun3(var1) {
+        await fetch("http://localhost:8000/home", {
+            method: "POST",
+            headers: {
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify({'id': var1.id})
+        })
+    }
+
+</script>
+</html>

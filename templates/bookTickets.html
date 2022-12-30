@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="{% static '/admin/js/vendor/jquery/jquery.min.js' %}"></script>
+    
+</head>
+<body>
+ {% if postRequest == "False" %}
+<form action="bookTickets" method="POST"> 
+    {% csrf_token %}
+    <input type="text" name="from_adr" placeholder="Enter from address">
+    <input type="text" name="to_adr" placeholder="Enter destination address">
+    <button type="submit">Click to Search</button>
+</form>
+{% endif %}
+
+ 
+
+</body>
+<script>
+
+function handler(e){
+  console.log("hi");
+}
+$('#date1').change(function(){
+        console.log('Submiting form');                
+        //$('#form1').submit();
+      });
+
+</script>
+
+</html>
